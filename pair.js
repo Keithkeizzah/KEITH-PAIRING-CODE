@@ -6,12 +6,12 @@ const fs = require('fs');
 let router = express.Router()
 const pino = require("pino");
 const {
-    default: Maher_Zubair,
+    default: Mehmedi_Md,
     useMultiFileAuthState,
     delay,
     makeCacheableSignalKeyStore,
     Browsers
-} = require("maher-zubair-baileys");
+} = require("mehmedi-md-baileys");
 
 function removeFile(FilePath){
     if(!fs.existsSync(FilePath)) return false;
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
             saveCreds
         } = await useMultiFileAuthState('./temp/'+id)
      try {
-            let Pair_Code_By_Maher_Zubair = Maher_Zubair({
+            let Pair_Code_By_Mehmedi_Md = Mehmedi_Md({
                 auth: {
                     creds: state.creds,
                     keys: makeCacheableSignalKeyStore(state.keys, pino({level: "fatal"}).child({level: "fatal"})),
@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
                 logger: pino({level: "fatal"}).child({level: "fatal"}),
                 browser: ["Chrome (Linux)", "", ""]
              });
-             if(!Pair_Code_By_Maher_Zubair.authState.creds.registered) {
+             if(!Pair_Code_By_Mehmedi_Md.authState.creds.registered) {
                 await delay(1500);
                         num = num.replace(/[^0-9]/g,'');
                             const code = await Pair_Code_By_Maher_Zubair.requestPairingCode(num)
@@ -43,8 +43,8 @@ router.get('/', async (req, res) => {
                  await res.send({code});
                      }
                  }
-            Pair_Code_By_Maher_Zubair.ev.on('creds.update', saveCreds)
-            Pair_Code_By_Maher_Zubair.ev.on("connection.update", async (s) => {
+            Pair_Code_By_Mehmedi_Md.ev.on('creds.update', saveCreds)
+            Pair_Code_By_Mehmedi_Md.ev.on("connection.update", async (s) => {
                 const {
                     connection,
                     lastDisconnect
@@ -54,43 +54,43 @@ router.get('/', async (req, res) => {
                 let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
                 await delay(800);
                let b64data = Buffer.from(data).toString('base64');
-               let session = await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id, { text: '' + b64data });
+               let session = await Pair_Code_By_Mehmedi_Md.sendMessage(Pair_Code_By_Mehmedi_Tech.user.id, { text: '' + b64data });
 
                let SIGMA_MD_TEXT = `
-*𝘒𝘌𝘐𝘛𝘏 𝘚𝘌𝘚𝘚𝘐𝘖𝘕 𝘙𝘜𝘕𝘕𝘐𝘕𝘎*
-*𝘒𝘌𝘐𝘛𝘏 𝘛𝘌𝘊𝘏*
-*𝙊𝙒𝙉𝙀𝙍 : 𝘒𝘌𝘐𝘛𝘏 𝘒𝘌𝘐𝘡𝘡𝘈𝘏*
+𝐌𝐄𝐇𝐌𝐄𝐃𝐈-𝐌𝐃 𝘚𝘌𝘚𝘚𝘐𝘖𝘕 𝘙𝘜𝘕𝘕𝘐𝘕𝘎*
+*𝚳𝚵𝚮𝚳𝚵𝐃𝚰 𝐂𝚮𝚫𝐘𝚯 𝚻𝚵𝐂𝚮 𝚳𝐃*
+*𝙊𝙒𝙉𝙀𝙍 : 𝚳𝚵𝚮𝚳𝚵𝐃𝚰 𝐂𝚮𝚫𝐘𝚯 𝚻𝚵𝐂𝚮*
 ____________________________________
 ╔════◇
-║『 𝗞𝗘𝗜𝗧𝗛 𝗠𝗗 𝙄𝙎 𝙍𝙀𝘼𝘿𝙔 𝙏𝙊 𝘿𝙀𝙋𝙇𝙊𝙔』
+║『 𝐌𝐄𝐇𝐌𝐄𝐃𝐈-𝐌𝐃 𝙄𝙎 𝙍𝙀𝘼𝘿𝙔 𝙏𝙊 𝘿𝙀𝙋𝙇𝙊𝙔』
 ║ OK YOUR SESSION IS READY COPY IT  
 ║ AND HOST IT ON HEROKU.
 ╚════════════════════╝
 ╔═════◇
 ║ 『••• OWNER INFO •••』
-║ ❒ 𝐘𝐨𝐮𝐭𝐮𝐛𝐞: _https://www.youtube.com/@keithkeizzah_
+║ ❒ 𝐘𝐨𝐮𝐭𝐮𝐛𝐞: _https://www.youtube.com/@Mehmedi_Chayo_
 
-║ ❒ 𝐎𝐰𝐧𝐞𝐫: _https://wa.me/254748387615_
+║ ❒ 𝐎𝐰𝐧𝐞𝐫: _https://wa.me/254721367216_
 
-║ ❒ 𝐑𝐞𝐩𝐨: _https://github.com/keithkeizzah/hunchoV8_
+║ ❒ 𝐑𝐞𝐩𝐨: _https://github.com/mehmedichayo17/Mehmedi-Md_
 
-║ ❒ 𝐖𝐚𝐆𝐫𝐨𝐮𝐩: _https://chat.whatsapp.com/KeEYrEX8UDdGD4m4GbdHaA_
+║ ❒ 𝐖𝐚𝐆𝐫𝐨𝐮𝐩: _https://chat.whatsapp.com/KsixrNss4OH9QGBD3cuk8g_
 
-║ ❒ 𝐖𝐚𝐂𝐡𝐚𝐧𝐧𝐞𝐥: _https://whatsapp.com/channel/0029Vaan9TF9Bb62l8wpoD47_
+║ ❒ 𝐖𝐚𝐂𝐡𝐚𝐧𝐧𝐞𝐥: _https://chat.whatsapp.com/KsixrNss4OH9QGBD3cuk8g_
 
-║ ❒ 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦: _https://www.instagram.com/keizzah_keith_
+║ ❒ 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦: _https://www.instagram.com/mehmedi_chayo?igsh=MWxuOHdhdzA0ZGpreQ==_
 
 ║ 🐯🐯🐯
 ╚════════════════════╝ 
- *©𝗞𝗘𝗜𝗧𝗛 𝗧𝗘𝗖𝗛*
+ *©𝚳𝚵𝚮𝚳𝚵𝐃𝚰 𝐂𝚮𝚫𝐘𝚯 𝚻𝚵𝐂𝚮 𝚳𝐃*
 ___________________________________
 
 Don't Forget To Give Star⭐ To My Repo`
- await Pair_Code_By_Maher_Zubair.sendMessage(Pair_Code_By_Maher_Zubair.user.id,{text:SIGMA_MD_TEXT},{quoted:session})
+ await Pair_Code_By_Mehmedi_Md.sendMessage(Pair_Code_By_Mehmedi_Md.user.id,{text:SIGMA_MD_TEXT},{quoted:session})
  
 
         await delay(100);
-        await Pair_Code_By_Maher_Zubair.ws.close();
+        await Pair_Code_By_Mehmedi_Md.ws.close();
         return await removeFile('./temp/'+id);
             } else if (connection === "close" && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != 401) {
                     await delay(10000);
